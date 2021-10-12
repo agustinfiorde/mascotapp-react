@@ -9,32 +9,39 @@ import FormularioRegistro from "./components/common/formulario-registro.componen
 import Dashboard from "./components/admin/dashboard.component";
 import MascotaForm from "./components/mascota/formulario.component";
 import Detalle from "./components/mascota/detalle.component";
+import "./paths";
+import {
+  DASHBOARD,
+  HOME,
+  LOGIN,
+  MASCOTAS,
+  SIGNUP,
+} from "./paths";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-      showModeratorBoard: "asd"
+      showModeratorBoard: "asd",
     };
   }
 
   render() {
     return (
       <div className="">
-        <NavBar/>
+        <NavBar />
 
         <Switch>
-          <Route exact path={["/", "/home"]} component={Main} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/login" component={Login} />
-          <Route path="/sign-up" component={FormularioRegistro} />
-          <Route path="/mascota/detalle/:id" component={Detalle} />
-          <Route path="/mascota/form" component={MascotaForm} />
+          <Route exact path={HOME} component={Main} />
+          <Route path={DASHBOARD.ROOT} component={Dashboard} />
+          <Route path={LOGIN} component={Login} />
+          <Route path={SIGNUP} component={FormularioRegistro} />
+          <Route path={MASCOTAS.DETALLE} component={Detalle} />
+          <Route path={MASCOTAS.FORM} component={MascotaForm} />
         </Switch>
-        
-        <Footer/>
+
+        <Footer />
       </div>
     );
   }

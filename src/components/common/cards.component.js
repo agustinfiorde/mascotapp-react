@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Card from "../mascota/card.component";
+// import Card from "../mascota/card.component";
+import { Card } from "../mascota/Card";
 
 export default class Cards extends Component {
-
   state = { mascotas: [] };
   listItems = [];
 
-
   render() {
-
-    this.listItems = this.props.mascotas.map((m) => <Card mascota={m} key={m.id} />);
+    this.listItems = this.props.mascotas.map((m) => (
+      <Card mascota={m} key={m.id} />
+    ));
 
     return (
       <div className="album py-5 bg-light">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 export default class Footer extends Component {
+  
   constructor(props) {
     super(props);
     this.appTitle = "MascotAPP";

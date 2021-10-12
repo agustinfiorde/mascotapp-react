@@ -1,15 +1,41 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import RickAndMortyService from "../../services/rickandmorty.service";
 
 export default class Detalle extends Component {
+  
+  urlDashboard = "/dashboard";
+  urlMain = "/";
+
   state = { mascota: {} };
+  returnButton = "";
+
+  constructor(props) {
+    super(props);
+    this.path = props.match.path;
+  }
 
   componentDidMount() {
+    
+    this.setReturnButton();
+
     const id = this.props.match.params.id;
 
     RickAndMortyService.getCharacterById(id).then((data) => {
       this.setState({ mascota: data });
     });
+  }
+
+  setReturnButton() {
+    const returnURL = this.path.includes("dashboard")
+      ? this.urlDashboard
+      : this.urlMain;
+
+    this.returnButton = (
+      <Link to={returnURL} className="mt-3 btn btn-primary btn-lg">
+        Volver
+      </Link>
+    );
   }
 
   render() {
@@ -42,7 +68,10 @@ export default class Detalle extends Component {
                 <li className="list-group-item">Porta ac consectetur ac</li>
                 <li className="list-group-item">Vestibulum at eros</li>
               </ul>
+
+              {this.returnButton}
             </div>
+
             <img
               className="h-100 d-inline-block rounded card-img-right flex-auto d-none d-md-block m-4"
               height="auto"
