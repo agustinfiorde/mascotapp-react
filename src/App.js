@@ -9,14 +9,13 @@ import FormularioRegistro from "./components/common/formulario-registro.componen
 import Dashboard from "./components/admin/dashboard.component";
 import MascotaForm from "./components/mascota/formulario.component";
 import Detalle from "./components/mascota/detalle.component";
-import "./paths";
 import {
   DASHBOARD,
   HOME,
   LOGIN,
   MASCOTAS,
   SIGNUP,
-} from "./paths";
+} from "./constants";
 
 class App extends Component {
   constructor(props) {
@@ -37,8 +36,8 @@ class App extends Component {
           <Route path={DASHBOARD.ROOT} component={Dashboard} />
           <Route path={LOGIN} component={Login} />
           <Route path={SIGNUP} component={FormularioRegistro} />
-          <Route path={MASCOTAS.DETALLE} component={Detalle} />
-          <Route path={MASCOTAS.FORM} component={MascotaForm} />
+          <Route path={MASCOTAS.DETALLE()} component={Detalle} />
+          <Route path={MASCOTAS.FORM()} component={MascotaForm} />
         </Switch>
 
         <Footer />

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./login.component.css";
 
 export default class Login extends Component {
@@ -18,7 +19,10 @@ export default class Login extends Component {
       <div className="text-center">
         <main className="form-signin">
           <form>
-            <i className="fa fa-address-card-o fa-3x mb-4" aria-hidden="true"></i>
+            <i
+              className="fa fa-address-card-o fa-3x mb-4"
+              aria-hidden="true"
+            ></i>
             <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div className="form-floating">
@@ -42,11 +46,11 @@ export default class Login extends Component {
 
             <div className="checkbox mb-3">
               <label>
-                <input type="checkbox" value="remember-me" /> Remember me
+                <input type="checkbox" value="remember-me" /> Recordarme
               </label>
-              <a className="m-5" href="https://www.w3schools.com">
+              <Link to={"/sign-up"} className="m-5">
                 Registro
-              </a>
+              </Link>
             </div>
             <button className="w-100 btn btn-lg btn-primary" type="submit">
               Sign in

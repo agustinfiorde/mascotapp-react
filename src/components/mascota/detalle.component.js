@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import RickAndMortyService from "../../services/rickandmorty.service";
 
 export default class Detalle extends Component {
-  
   urlDashboard = "/dashboard";
   urlMain = "/";
 
@@ -16,11 +15,10 @@ export default class Detalle extends Component {
   }
 
   componentDidMount() {
-    
     this.setReturnButton();
 
     const id = this.props.match.params.id;
-
+    
     RickAndMortyService.getCharacterById(id).then((data) => {
       this.setState({ mascota: data });
     });

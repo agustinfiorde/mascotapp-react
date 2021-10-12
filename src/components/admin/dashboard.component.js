@@ -6,7 +6,7 @@ import TablaUsuarios from "./tabla-usuarios.component";
 import Detalle from "../mascota/detalle.component";
 import ListaMascotas from "../mascota/lista-mascotas.component";
 import Perfil from "../usuario/perfil.component";
-import { DASHBOARD } from "../../paths";
+import { DASHBOARD } from "../../constants";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -35,9 +35,9 @@ export default class Dashboard extends Component {
                 path={DASHBOARD.TABLA_USUARIOS()}
                 component={TablaUsuarios}
               />
-              <Route exact path={DASHBOARD.PERFIL} component={Perfil} />
-              <Route exact path={DASHBOARD.LISTA} component={ListaMascotas} />
-              <Route exact path={DASHBOARD.FAV} component={Detalle} />
+              <Route exact path={DASHBOARD.PERFIL()} component={Perfil} />
+              <Route exact path={DASHBOARD.LISTA()} component={ListaMascotas} />
+              <Route exact path={DASHBOARD.FAV()} component={Detalle} />
             </Switch>
           </main>
         </div>

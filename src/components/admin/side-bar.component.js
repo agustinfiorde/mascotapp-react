@@ -41,7 +41,13 @@ export default class SideBar extends Component {
 
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>
-              <i className="fa fa-user" aria-hidden="true"></i> Nombre Usuario
+              <img
+                className="rounded"
+                height="50px"
+                src="https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif"
+                alt="profile"
+              />{"  "}
+              Nombre Usuario
             </span>
           </h6>
           <ul className="nav flex-column mb-2">
