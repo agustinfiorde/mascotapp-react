@@ -15,43 +15,43 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div class="text-center">
-        <main class="form-signin">
+      <div className="text-center">
+        <main className="form-signin">
           <form>
-            <i class="fa fa-address-card-o fa-3x mb-4" aria-hidden="true"></i>
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <i className="fa fa-address-card-o fa-3x mb-4" aria-hidden="true"></i>
+            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
-            <div class="form-floating">
+            <div className="form-floating">
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
               />
               <label for="floatingInput">Email address</label>
             </div>
-            <div class="form-floating">
+            <div className="form-floating">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
               />
               <label for="floatingPassword">Password</label>
             </div>
 
-            <div class="checkbox mb-3">
+            <div className="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me" /> Remember me
               </label>
-              <a class="m-5" href="https://www.w3schools.com">
+              <a className="m-5" href="https://www.w3schools.com">
                 Registro
               </a>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">
+            <button className="w-100 btn btn-lg btn-primary" type="submit">
               Sign in
             </button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
           </form>
         </main>
       </div>

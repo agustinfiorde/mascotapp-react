@@ -15,9 +15,9 @@ export default class ListaMascotas extends Component {
   render() {
     return (
       <div>
-        <h2 class="mt-4">Mis Mascotas</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
+        <h2 className="mt-4">Mis Mascotas</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-sm">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -28,20 +28,20 @@ export default class ListaMascotas extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr class="table-success">
+              <tr className="table-success">
                 <td>1,001</td>
                 <td>random</td>
                 <td>data</td>
                 <td>
-                  <a>
-                    <i class="far fa-thumbs-up"></i>
-                  </a>
+                  {/* <a>
+                    <i className="far fa-thumbs-up"></i>
+                  </a> */}
                 </td>
 
                 <td>
-                  <a>
-                    <i class="fas fa-trash"></i>
-                  </a>
+                  {/* <a>
+                    <i className="fas fa-trash"></i>
+                  </a> */}
                 </td>
               </tr>
               <tr>
@@ -49,15 +49,15 @@ export default class ListaMascotas extends Component {
                 <td>random</td>
                 <td>data</td>
                 <td>
-                  <a>
-                    <i class="far fa-thumbs-up"></i>
-                  </a>
+                  {/* <a>
+                    <i className="far fa-thumbs-up"></i>
+                  </a> */}
                 </td>
 
                 <td>
-                  <a>
-                    <i class="fas fa-trash"></i>
-                  </a>
+                  {/* <a>
+                    <i className="fas fa-trash"></i>
+                  </a> */}
                 </td>
               </tr>
               <tr>
@@ -65,15 +65,15 @@ export default class ListaMascotas extends Component {
                 <td>random</td>
                 <td>data</td>
                 <td>
-                  <a>
-                    <i class="far fa-thumbs-up"></i>
-                  </a>
+                  {/* <a>
+                    <i className="far fa-thumbs-up"></i>
+                  </a> */}
                 </td>
 
                 <td>
-                  <a>
-                    <i class="fas fa-trash"></i>
-                  </a>
+                  {/* <a>
+                    <i className="fas fa-trash"></i>
+                  </a> */}
                 </td>
               </tr>
             </tbody>

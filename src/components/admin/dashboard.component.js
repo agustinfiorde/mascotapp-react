@@ -19,10 +19,10 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div class="container-fluid">
-        <div class="row">
+      <div className="container-fluid">
+        <div className="row">
           <SideBar />
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 min-vh-100">
+          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 min-vh-100">
             <Switch>
               <Route
                 exact
@@ -46,7 +46,7 @@ export default class Dashboard extends Component {
               />
                <Route
                 exact
-                path={`${this.path}/fav`}
+                path={`${this.path}/fav/:id`}
                 component={Detalle}
               />
             </Switch>

@@ -15,9 +15,9 @@ export default class TablaUsuarios extends Component {
   render() {
     return (
       <div>
-        <h2 class="mt-4">Tabla Usuarios</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
+        <h2 className="mt-4">Tabla Usuarios</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-sm">
             <thead>
               <tr>
                 <th scope="col">#</th>

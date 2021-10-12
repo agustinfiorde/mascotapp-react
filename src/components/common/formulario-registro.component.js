@@ -14,56 +14,56 @@ export default class FormularioRegistro extends Component {
 
   render() {
     return (
-      <div class="w-50 mx-auto mt-5">
-        <h4 class="mb-3">Humano Registrate!</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="email" class="form-label">
+      <div className="w-25 mx-auto mt-5">
+        <h4 className="mb-3">Humano Registrate!</h4>
+        <form className="needs-validation" novalidate>
+          <div className="row g-3">
+            <div className="col-12">
+              <label for="email" className="form-label">
                 Email
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="email"
                 placeholder="you@example.com"
               />
-              <div class="invalid-feedback">
+              <div className="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
 
-            <div class="col-12">
-              <label for="address" class="form-label">
+            <div className="col-12">
+              <label for="address" className="form-label">
                 Clave
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="address"
                 placeholder="Clave"
                 required
               />
-              <div class="invalid-feedback">
+              <div className="invalid-feedback">
                 Please enter your shipping address.
               </div>
             </div>
 
-            <div class="col-12">
-              <label for="address2" class="form-label">
+            <div className="col-12">
+              <label for="address2" className="form-label">
                 Repetir Clave 
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="address2"
                 placeholder="Repetir clave"
               />
             </div>
 
-            <hr class="my-4" />
+            <hr className="my-4" />
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">
+            <button className="w-100 btn btn-primary btn-lg" type="submit">
               Registrarme
             </button>
           </div>

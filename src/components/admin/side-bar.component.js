@@ -19,50 +19,50 @@ export default class SideBar extends Component {
     return (
       <nav
         id="sidebarMenu"
-        class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse"
+        className="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse"
       >
-        <div class="position-sticky pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item">
+        <div className="position-sticky pt-3">
+          <ul className="nav flex-column">
+            <li className="nav-item">
               <Link to={"/dashboard/tabla-mascotas"} className="nav-link">
                 Todas las Mascotas{" "}
-                <i class="fa fa-table" aria-hidden="true"></i>{" "}
-                <i class="fa fa-paw" aria-hidden="true"></i>
+                <i className="fa fa-table" aria-hidden="true"></i>{" "}
+                <i className="fa fa-paw" aria-hidden="true"></i>
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to={"/dashboard/tabla-usuarios"} className="nav-link">
                 Todos los Usuarios{" "}
-                <i class="fa fa-table" aria-hidden="true"></i>{" "}
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i className="fa fa-table" aria-hidden="true"></i>{" "}
+                <i className="fa fa-user" aria-hidden="true"></i>
               </Link>
             </li>
           </ul>
 
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>
-              <i class="fa fa-user" aria-hidden="true"></i> Nombre Usuario
+              <i className="fa fa-user" aria-hidden="true"></i> Nombre Usuario
             </span>
           </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
+          <ul className="nav flex-column mb-2">
+            <li className="nav-item">
               <Link to={"/dashboard/perfil"} className="nav-link">
-                Mi Perfil <i class="fa fa-cog" aria-hidden="true"></i>
+                Mi Perfil <i className="fa fa-cog" aria-hidden="true"></i>
               </Link>
             </li>
 
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to={"/dashboard/lista"} className="nav-link">
-                Mis Mascotas <i class="fas fa-list"></i>{" "}
-                <i class="fa fa-paw" aria-hidden="true"></i>
+                Mis Mascotas <i className="fas fa-list"></i>{" "}
+                <i className="fa fa-paw" aria-hidden="true"></i>
               </Link>
             </li>
 
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to={"/dashboard/fav"} className="nav-link">
                 Mi Mascota Favorita{" "}
-                <i class="fa fa-heart" aria-hidden="true"></i>{" "}
-                <i class="fa fa-paw" aria-hidden="true"></i>
+                <i className="fa fa-heart" aria-hidden="true"></i>{" "}
+                <i className="fa fa-paw" aria-hidden="true"></i>
               </Link>
             </li>
           </ul>

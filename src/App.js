@@ -7,6 +7,8 @@ import Main from "./components/common/main.component";
 import Login from "./components/common/login.component";
 import FormularioRegistro from "./components/common/formulario-registro.component";
 import Dashboard from "./components/admin/dashboard.component";
+import MascotaForm from "./components/mascota/formulario.component";
+import Detalle from "./components/mascota/detalle.component";
 
 class App extends Component {
 
@@ -20,7 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <div class="">
+      <div className="">
         <NavBar/>
 
         <Switch>
@@ -28,6 +30,8 @@ class App extends Component {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login" component={Login} />
           <Route path="/sign-up" component={FormularioRegistro} />
+          <Route path="/mascota/detalle/:id" component={Detalle} />
+          <Route path="/mascota/form" component={MascotaForm} />
         </Switch>
         
         <Footer/>
