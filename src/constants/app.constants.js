@@ -1,10 +1,3 @@
-export const API = {
-  URL: "https://rickandmortyapi.com/api",
-  CHARACTERS: function () {
-    return `${this.URL}/character`;
-  },
-}
-
 export const HOME = ["/", "/home"];
 export const USERS = "/users";
 export const LOGIN = "/login";

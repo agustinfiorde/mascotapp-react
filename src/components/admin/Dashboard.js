@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import SideBar from "./side-bar.component";
-import TablaMascotas from "./tabla-mascotas.component";
-import TablaUsuarios from "./tabla-usuarios.component";
-import Detalle from "../mascota/detalle.component";
-import ListaMascotas from "../mascota/lista-mascotas.component";
-import Perfil from "../usuario/perfil.component";
-import { DASHBOARD } from "../../constants";
+import SideBar from "./SideBar";
+import TablaMascotas from "./TablaMascotas";
+import TablaUsuarios from "./TablaUsuarios";
+import Detalle from "../mascota/Detalle";
+import ListaMascotas from "../mascota/ListaMascotas";
+import Perfil from "../usuario/Perfil";
+import { DASHBOARD } from "../../constants/app.constants";
 
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.path = props.match.path;
-    // console.log(props.location);
-    // console.log(props.match);
-    // console.log(props.history);
   }
 
   render() {

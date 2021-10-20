@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import RickAndMortyService from "../../services/rickandmorty.service";
 import React, { Component } from "react";
-import Cards from "./cards.component";
+import Cards from "./Cards";
 
 export default class Main extends Component {
-  
   state = { mascotas: [] };
 
   componentDidMount() {
-    RickAndMortyService.getAllCharacters().then((data) =>
-      this.setState({ mascotas: data.results })
-    );
+    RickAndMortyService.getAllCharacters()
+      .then((data) => this.setState({ mascotas: data.results }))
+      .catch(this.setState({ mascotas: [] }));
   }
 
   render() {

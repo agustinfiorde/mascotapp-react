@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./login.component.css";
+import "./Login.css";
+import UserService from "../../services/usuario.service";
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  onChangeUsername(e) {}
 
-  onChangePassword(e) {}
+export const Login = () => {
 
-  handleLogin(e) {}
 
-  render() {
-    return (
-      <div className="text-center">
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const fakeLogin = function() {
+    UserService.logFakeUser();
+    setIsLoggedIn(true);
+  };
+
+  return (
+    <div className="text-center">
         <main className="form-signin">
           <form>
             <i
@@ -52,13 +52,13 @@ export default class Login extends Component {
                 Registro
               </Link>
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit">
+            <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={fakeLogin}>
               Sign in
             </button>
             <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
           </form>
         </main>
       </div>
-    );
-  }
+  )
 }
+

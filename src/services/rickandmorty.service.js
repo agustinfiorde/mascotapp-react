@@ -1,6 +1,4 @@
-// import authHeader from "./auth-header";
-
-import { API } from "../constants";
+import { API } from "../constants/api.constants";
 
 class RickAndMortyService {
   async getAllCharacters() {
@@ -13,9 +11,6 @@ class RickAndMortyService {
     return response.json();
   }
 
-  //   getUserBoard() {
-  //     return axios.get(API_URL + "user", { headers: authHeader() });
-  //   }
 }
 
 export default new RickAndMortyService();

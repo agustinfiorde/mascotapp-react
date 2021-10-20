@@ -1,44 +1,44 @@
 import "./App.css";
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import Footer from "./components/common/footer.component";
-import NavBar from "./components/common/nav-bar.component";
-import Main from "./components/common/main.component";
-import Login from "./components/common/login.component";
-import FormularioRegistro from "./components/common/formulario-registro.component";
-import Dashboard from "./components/admin/dashboard.component";
-import MascotaForm from "./components/mascota/formulario.component";
-import Detalle from "./components/mascota/detalle.component";
+import { Footer } from "./components/common/Footer";
+import { NavBar } from "./components/common/NavBar";
+import Main from "./components/common/Main";
+import { Login } from "./components/common/Login";
+import { RegistroForm } from "./components/common/RegistroForm";
+import Dashboard from "./components/admin/Dashboard";
+import { MascotaForm } from "./components/mascota/MascotaForm";
+import Detalle from "./components/mascota/Detalle";
 import {
   DASHBOARD,
   HOME,
   LOGIN,
   MASCOTAS,
   SIGNUP,
-} from "./constants";
+} from "./constants/app.constants";
+
+const user = {
+  isLoggedIn: false,
+};
+
+const UserContext = React.createContext(user);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showModeratorBoard: "asd",
-    };
-  }
-
   render() {
     return (
       <div className="">
-        <NavBar />
+        <UserContext.Provider>
+          <NavBar />
 
-        <Switch>
-          <Route exact path={HOME} component={Main} />
-          <Route path={DASHBOARD.ROOT} component={Dashboard} />
-          <Route path={LOGIN} component={Login} />
-          <Route path={SIGNUP} component={FormularioRegistro} />
-          <Route path={MASCOTAS.DETALLE()} component={Detalle} />
-          <Route path={MASCOTAS.FORM()} component={MascotaForm} />
-        </Switch>
+          <Switch>
+            <Route exact path={HOME} component={Main} />
+            <Route path={DASHBOARD.ROOT} component={Dashboard} />
+            <Route path={LOGIN} component={Login} />
+            <Route path={SIGNUP} component={RegistroForm} />
+            <Route path={MASCOTAS.DETALLE()} component={Detalle} />
+            <Route path={MASCOTAS.FORM()} component={MascotaForm} />
+          </Switch>
+        </UserContext.Provider>
 
         <Footer />
       </div>

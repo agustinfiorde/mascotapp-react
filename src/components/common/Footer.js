@@ -1,26 +1,15 @@
 import "../../App.css";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export const Footer = () => {
-  const [dato, setDato] = useState("Pepito");
 
   const year = new Date().getFullYear();
   let appTitle = "MascotAPP";
 
-  useEffect(() => {
-    console.log(dato);
-  }, [dato]);
-
-  const handleClick = () => {
-    setDato(prompt());
-  };
 
   return (
     <div className="container absolute-bottom">
-      <button className="btn btn-primary" onClick={handleClick}>
-        Boton
-      </button>
       <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p className="col-md-4 mb-0 text-muted">
           &copy; {year} {appTitle}
