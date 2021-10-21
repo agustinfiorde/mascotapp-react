@@ -9,7 +9,7 @@ export default class Perfil extends Component {
     return (
       <div className="mx-auto col-md-9 col-lg-10 m-4">
         <h4 className="mb-3">Perfil</h4>
-        <form className="needs-validation" novalidate>
+        <form className="needs-validation" noValidate>
           <div className="row g-3">
             <div className="col-sm-6">
               <label htmlFor="name" className="form-label">

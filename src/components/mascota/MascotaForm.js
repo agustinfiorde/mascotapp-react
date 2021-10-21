@@ -27,7 +27,7 @@ export const MascotaForm = () => {
       setState(defaultImg);
       setForm({
         ...form,
-        profilePictureB64: await imageToBase64(defaultImg),
+        profilePictureB64: null,
       });
     }
   };

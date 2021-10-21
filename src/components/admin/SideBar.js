@@ -1,44 +1,39 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AuthService from "../../services/auth.service";
 
 export default class SideBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.isAdmin = AuthService.isAdmin();
   }
 
-  onChangeUsername(e) {}
-
-  onChangePassword(e) {}
-
-  handleLogin(e) {}
 
   render() {
-    // let { path, url } = useRouteMatch();
-
     return (
       <nav
         id="sidebarMenu"
         className="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse"
       >
         <div className="position-sticky pt-3">
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <Link to={"/dashboard/tabla-mascotas"} className="nav-link">
-                Todas las Mascotas{" "}
-                <i className="fa fa-table" aria-hidden="true"></i>{" "}
-                <i className="fa fa-paw" aria-hidden="true"></i>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/dashboard/tabla-usuarios"} className="nav-link">
-                Todos los Usuarios{" "}
-                <i className="fa fa-table" aria-hidden="true"></i>{" "}
-                <i className="fa fa-user" aria-hidden="true"></i>
-              </Link>
-            </li>
-          </ul>
-
+          {this.isAdmin && (
+            <ul className="nav flex-column">
+              <li className="nav-item">
+                <Link to={"/dashboard/tabla-mascotas"} className="nav-link">
+                  Todas las Mascotas{" "}
+                  <i className="fa fa-table" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-paw" aria-hidden="true"></i>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/dashboard/tabla-usuarios"} className="nav-link">
+                  Todos los Usuarios{" "}
+                  <i className="fa fa-table" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                </Link>
+              </li>
+            </ul>
+          )}
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>
               <img
@@ -46,7 +41,8 @@ export default class SideBar extends Component {
                 height="50px"
                 src="https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif"
                 alt="profile"
-              />{"  "}
+              />
+              {"  "}
               Nombre Usuario
             </span>
           </h6>

@@ -7,8 +7,6 @@ import AuthService from "../../services/auth.service";
 export const Login = () => {
   const { auth, setAuth } = useContext(AuthContext);
 
-  console.log("Auth desde login " + auth);
-
   const fakeLogin = function (e) {
     e.preventDefault();
     AuthService.loginFakeUser();

@@ -12,7 +12,7 @@ export const NavBar = () => {
     setAuth(false);
   };
 
-  setAuth(AuthService.isLogged());
+  // setAuth(AuthService.isLogged());
 
   return (
     <header className="p-3 bg-dark text-white">

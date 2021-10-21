@@ -3,12 +3,12 @@ import React from "react";
 import { AuthContext } from "./context/context";
 import { useAuth } from "./hooks/custom.hook";
 import { Switch, Route } from "react-router-dom";
-import { Footer } from "./components/common/Footer";
+import Footer from "./components/common/Footer";
 import { NavBar } from "./components/common/NavBar";
 import Main from "./components/common/Main";
 import { Login } from "./components/common/Login";
 import { RegistroForm } from "./components/common/RegistroForm";
-import Dashboard from "./components/admin/Dashboard";
+import { Dashboard } from "./components/admin/Dashboard";
 import { MascotaForm } from "./components/mascota/MascotaForm";
 import Detalle from "./components/mascota/Detalle";
 import {

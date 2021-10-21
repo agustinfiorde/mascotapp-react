@@ -2,7 +2,6 @@ import { user, REQUEST_OPTIONS, HTTP } from "../constants/constants";
 import { API_EISH } from "../constants/api.constants";
 
 class AuthService {
-
   loginFakeUser() {
     const fakeUser = {
       roles: [{ role: "USER" }, { role: "ADMIN" }],
@@ -11,7 +10,10 @@ class AuthService {
   }
 
   async login(userData) {
-    const response = await fetch(API_EISH.LOGIN, REQUEST_OPTIONS(userData, HTTP.POST));
+    const response = await fetch(
+      API_EISH.LOGIN,
+      REQUEST_OPTIONS(userData, HTTP.POST)
+    );
     return response.json();
   }
 

@@ -1,7 +1,7 @@
 export const API = {
     URL: "https://rickandmortyapi.com/api",
     CHARACTERS: function () {
-      return `${this.URL}/character`;
+      return `${this.URL}/character/1,183`;
     },
   }
   

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AuthService from "../services/auth.service";
 
 export const useForm = (initialState = {}) => {
   const [form, setForm] = useState(initialState);
@@ -19,7 +20,7 @@ export const useForm = (initialState = {}) => {
 };
 
 export const useAuth = () => {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(AuthService.isLogged());
   const [roles, setRoles] = useState([]);
 
   return [auth, setAuth, roles, setRoles];
