@@ -4,7 +4,6 @@ import { HTTP, REQUEST_OPTIONS } from "../constants/constants";
 class MascotaService {
 
   async register(petData) {
-    console.log(petData)
     const response = await fetch(API_EISH.USER_REGISTER, REQUEST_OPTIONS(petData, HTTP.POST));
     return response.json();
   }

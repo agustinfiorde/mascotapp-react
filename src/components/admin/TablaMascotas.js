@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MascotaService from "../../services/mascota.service";
 
 export default class TablaMascotas extends Component {
   constructor(props) {
@@ -10,8 +9,8 @@ export default class TablaMascotas extends Component {
   render() {
 
     const mascotas = [1,2,3,4,5,6,4,4,4,4,4,4,4] ;//await MascotaService.getAllPets();
-    const rows = mascotas.map((m) => (
-      <tr>
+    const rows = mascotas.map((m, i) => (
+      <tr key={i}>
         <td>1,001</td>
         <td>random</td>
         <td>data</td>

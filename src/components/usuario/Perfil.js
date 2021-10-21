@@ -12,7 +12,7 @@ export default class Perfil extends Component {
         <form className="needs-validation" novalidate>
           <div className="row g-3">
             <div className="col-sm-6">
-              <label for="name" className="form-label">
+              <label htmlFor="name" className="form-label">
                 Nombre
               </label>
               <input
@@ -29,7 +29,7 @@ export default class Perfil extends Component {
             </div>
 
             <div className="col-sm-6">
-              <label for="lastName" className="form-label">
+              <label htmlFor="lastName" className="form-label">
                 Apellido
               </label>
               <input
@@ -63,7 +63,7 @@ export default class Perfil extends Component {
             </div> */}
 
             <div className="col-6">
-              <label for="email" className="form-label">
+              <label htmlFor="email" className="form-label">
                 Email
               </label>
               <input
@@ -78,7 +78,7 @@ export default class Perfil extends Component {
             </div>
 
             <div className="col-6">
-              <label for="dni" className="form-label">
+              <label htmlFor="dni" className="form-label">
                 DNI
               </label>
               <input
@@ -93,7 +93,7 @@ export default class Perfil extends Component {
             </div>
 
             <div className="col-6">
-              <label for="password" className="form-label">
+              <label htmlFor="password" className="form-label">
                 Password
               </label>
               <input
@@ -108,7 +108,7 @@ export default class Perfil extends Component {
             </div>
 
             <div className="col-6">
-              <label for="repeat-password" className="form-label">
+              <label htmlFor="repeat-password" className="form-label">
                 Repetir Password
               </label>
               <input
@@ -123,7 +123,7 @@ export default class Perfil extends Component {
             </div>
 
             <div className="col-md-6">
-              <label for="profilePicture" className="form-label">
+              <label htmlFor="profilePicture" className="form-label">
                 Foto de Perfil
               </label>
               <input

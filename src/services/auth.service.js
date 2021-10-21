@@ -5,7 +5,7 @@ class AuthService {
 
   loginFakeUser() {
     const fakeUser = {
-      roles: [{ name: "USER" }, { name: "ADMIN" }],
+      roles: [{ role: "USER" }, { role: "ADMIN" }],
     };
     this.setLocalStorage(user, JSON.stringify(fakeUser));
   }
@@ -25,7 +25,7 @@ class AuthService {
 
   getRoles() {
     let { roles } = this.getLocalStorage(user);
-    return roles.map((e) => e.name);
+    return roles.map((e) => e.role);
   }
 
   isLogged() {

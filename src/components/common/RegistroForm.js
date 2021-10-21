@@ -75,7 +75,7 @@ export const RegistroForm = () => {
       <form className="needs-validation" novalidate>
         <div className="row g-3">
           <div className="col-12">
-            <label for="email" className="form-label">
+            <label htmlFor="email" className="form-label">
               Email
             </label>
             <input
@@ -92,7 +92,7 @@ export const RegistroForm = () => {
           </div>
 
           <div className="col-12">
-            <label for="address" className="form-label">
+            <label htmlFor="address" className="form-label">
               Clave
             </label>
             <input
@@ -110,7 +110,7 @@ export const RegistroForm = () => {
           </div>
 
           <div className="col-12">
-            <label for="address2" className="form-label">
+            <label htmlFor="address2" className="form-label">
               Repetir Clave
             </label>
             <input

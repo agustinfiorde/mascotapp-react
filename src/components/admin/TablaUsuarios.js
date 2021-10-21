@@ -7,11 +7,10 @@ export default class TablaUsuarios extends Component {
   }
 
   render() {
-
-    const usuarios = [1,2,3,4,5,6,4,4,4,4,4,4,4] ;//await UsuarioService.getAllUsers();
-    const rows = usuarios.map((u) => (
-      <tr>
-        <td>1,001</td>
+    const usuarios = [1, 2, 3, 4, 5, 6, 4, 4, 4, 4, 4, 4, 4]; //await UsuarioService.getAllUsers();
+    const rows = usuarios.map((m, i) => (
+      <tr key={i}>
+        <td>1233</td>
         <td>random</td>
         <td>data</td>
         <td>placeholder</td>
@@ -33,9 +32,7 @@ export default class TablaUsuarios extends Component {
                 <th scope="col">Foto</th>
               </tr>
             </thead>
-            <tbody>
-              {rows}
-            </tbody>
+            <tbody>{rows}</tbody>
           </table>
         </div>
       </div>

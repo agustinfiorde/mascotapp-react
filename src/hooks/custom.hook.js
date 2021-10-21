@@ -17,3 +17,10 @@ export const useForm = (initialState = {}) => {
     handleChanges,
   };
 };
+
+export const useAuth = () => {
+  const [auth, setAuth] = useState(false);
+  const [roles, setRoles] = useState([]);
+
+  return [auth, setAuth, roles, setRoles];
+};

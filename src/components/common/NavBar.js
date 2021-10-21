@@ -1,22 +1,18 @@
 import "../../App.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/auth.service";
+import { AuthContext } from "../../context/context";
 
 export const NavBar = () => {
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showDashBoard, setShowDashBoard] = useState(false);
-
-  useEffect(()=>{
-    setIsLoggedIn(true);
-    
-  }, [])
+  const { auth, setAuth } = useContext(AuthContext);
 
   const logout = function () {
     AuthService.clearLocalStorage();
-    setIsLoggedIn(false);
+    setAuth(false);
   };
+
+  setAuth(AuthService.isLogged());
 
   return (
     <header className="p-3 bg-dark text-white">
@@ -36,7 +32,7 @@ export const NavBar = () => {
               </Link>
             </li>
 
-            {true && (
+            {auth && (
               <li className="nav-item">
                 <Link to={"/dashboard"} className="nav-link">
                   Dashboard
@@ -51,26 +47,23 @@ export const NavBar = () => {
             </li>
           </ul>
           <div className="text-end">
-            {/* {!isLoggedIn && ( */}
-              <button
-                type="button"
-                className="btn btn-outline-light me-2"
-              >
+            {!auth && (
+              <button type="button" className="btn btn-outline-light me-2">
                 <Link to={"/login"} className="nav-link">
                   Login
                 </Link>
               </button>
-            {/* )}  */}
+            )}
 
-            {/* {isLoggedIn && (
+            {auth && (
               <button
                 type="button"
-                className="btn btn-outline-light me-2"
-                onClick={logout()}
+                className="btn btn-outline-light me-2 "
+                onClick={logout}
               >
-                Logout
+                <span className="nav-link">Logout</span>
               </button>
-            )} */}
+            )}
 
             <button type="button" className="btn btn-warning">
               <Link to={"/sign-up"} className="nav-link">

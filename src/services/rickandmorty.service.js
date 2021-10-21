@@ -11,6 +11,7 @@ class RickAndMortyService {
     return response.json();
   }
 
+
 }
 
 export default new RickAndMortyService();
