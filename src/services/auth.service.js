@@ -4,17 +4,24 @@ import { API_EISH } from "../constants/api.constants";
 class AuthService {
   loginFakeUser() {
     const fakeUser = {
+      id: "123123123",
+      name: "Agustin",
+      lastName: "Fiordelisi",
       roles: [{ role: "USER" }, { role: "ADMIN" }],
     };
     this.setLocalStorage(user, JSON.stringify(fakeUser));
   }
 
   async login(userData) {
-    const response = await fetch(
-      API_EISH.LOGIN,
+    let response = await fetch(
+      API_EISH.LOGIN(),
       REQUEST_OPTIONS(userData, HTTP.POST)
     );
     return response.json();
+  }
+
+  getUser() {
+    if (this.isLogged()) return this.getLocalStorage(user);
   }
 
   isAdmin() {
@@ -41,7 +48,10 @@ class AuthService {
 
   setLocalStorage(key, item) {
     try {
-      window.localStorage.setItem(key, item);
+
+      if (typeof item === "object") item = JSON.stringify(item);
+
+      window.localStorage.setItem(key, (item));
       return true;
     } catch (error) {
       return false;

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { Card } from "../mascota/Card";
 
 export default class Cards extends Component {
+
   state = { mascotas: [] };
-  listItems = [];
 
   render() {
     this.listItems = this.props.mascotas.map((m) => (

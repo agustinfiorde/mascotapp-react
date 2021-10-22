@@ -35,7 +35,7 @@ export const MascotaForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await MascotaService.register(form)
-      .then((response) => response.json())
+      .then((response) => response)
       .then(({ message }) => console.log(message))
       .catch((err) => console.error(err));
   };
@@ -111,7 +111,7 @@ export const MascotaForm = () => {
                 className="form-control"
                 id="petNumber"
                 placeholder=""
-                // required
+              // required
               />
               <div className="invalid-feedback">
                 Valid petNumber is required.
@@ -128,7 +128,7 @@ export const MascotaForm = () => {
                 id="petNumber"
                 placeholder=""
                 onChange={uploadImage}
-                // required
+              // required
               />
               <div className="invalid-feedback">
                 Please select a valid country.

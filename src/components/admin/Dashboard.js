@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import SideBar from "./SideBar";
-import TablaMascotas from "./TablaMascotas";
-import TablaUsuarios from "./TablaUsuarios";
+import { SideBar } from "./SideBar";
+import { TablaMascotas } from "./TablaMascotas";
+import { TablaUsuarios } from "./TablaUsuarios";
 import Detalle from "../mascota/Detalle";
 import { ListaMascotas } from "../mascota/ListaMascotas";
-import Perfil from "../usuario/Perfil";
+import { Perfil } from "../usuario/Perfil";
 import { DASHBOARD } from "../../constants/app.constants";
 import { AuthContext } from "../../context/context";
 

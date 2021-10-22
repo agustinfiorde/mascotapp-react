@@ -1,41 +1,44 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import UsuarioService from "../../services/usuario.service";
 
-export default class TablaUsuarios extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+export const TablaUsuarios = () => {
 
-  render() {
-    const usuarios = [1, 2, 3, 4, 5, 6, 4, 4, 4, 4, 4, 4, 4]; //await UsuarioService.getAllUsers();
-    const rows = usuarios.map((m, i) => (
-      <tr key={i}>
-        <td>1233</td>
-        <td>random</td>
-        <td>data</td>
-        <td>placeholder</td>
-        <td>text</td>
-      </tr>
-    ));
+  const [users, setUsers] = useState([]);
 
-    return (
-      <div>
-        <h2 className="mt-4">Tabla Usuarios</h2>
-        <div className="table-responsive">
-          <table className="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th scope="col">DNI</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Email</th>
-                <th scope="col">Foto</th>
-              </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-          </table>
-        </div>
+  useEffect(() => {
+    UsuarioService.getAllUsers()
+      .then((response) => setUsers(response.data.users))
+      .catch(() => setUsers([]))
+  }, [])
+
+  const rows = users.map((m, i) => (
+    <tr key={i}>
+      <td>{m.dni}</td>
+      <td>{m.name}</td>
+      <td>{m.lastName}</td>
+      <td>{m.email}</td>
+      <td>{m.id}</td>
+    </tr>
+  ));
+
+  return (
+    <div>
+      <h2 className="mt-4">Tabla Usuarios</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">DNI</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th>
+              <th scope="col">Foto</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
       </div>
-    );
-  }
+    </div>
+  )
 }
+

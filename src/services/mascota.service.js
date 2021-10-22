@@ -4,22 +4,23 @@ import { HTTP, REQUEST_OPTIONS } from "../constants/constants";
 class MascotaService {
 
   async register(petData) {
-    const response = await fetch(API_EISH.USER_REGISTER, REQUEST_OPTIONS(petData, HTTP.POST));
+    console.log(API_EISH.PET_REGISTER());
+    const response = await fetch(API_EISH.PET_REGISTER(), REQUEST_OPTIONS(petData, HTTP.POST));
     return response.json();
   }
 
   async getAllPets() {
-    const response = await fetch(API_EISH.PET_GET_ALL);
+    const response = await fetch(API_EISH.PET_GET_ALL());
     return response.json();
   }
 
   async getPetsByUser(userId) {
-    const response = await fetch(`${API_EISH.PET_GET_ALL}/${userId}`);
+    const response = await fetch(`${API_EISH.PET_GET_ALL()}/${userId}`);
     return response.json();
   }
 
   async getFavoritePet(userId) {
-    const response = await fetch(`${API_EISH.PET_GET_SINGLE}/${userId}`);
+    const response = await fetch(`${API_EISH.PET_GET_SINGLE()}/${userId}`);
     return response.json();
   }
 

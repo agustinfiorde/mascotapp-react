@@ -1,40 +1,70 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../context/context";
 import AuthService from "../../services/auth.service";
 
-export const Login = () => {
-  const { auth, setAuth } = useContext(AuthContext);
+export const Login = (props) => {
 
-  const fakeLogin = function (e) {
+  const { auth, setAuth } = useContext(AuthContext);
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e) => {
+    setUser((prevProps) => ({
+      ...prevProps,
+      [e.target.name]: e.target.value
+    }));
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    AuthService.loginFakeUser();
-    setAuth(!auth);
-  };
+    AuthService.login(user)
+      .then((response) => {
+        AuthService.setLocalStorage("user", response.data.token.user);
+        setAuth(true);
+        props.history.push("/dashboard");
+      });
+  }
+
+  // const fakeLogin = function (e) {
+  //   e.preventDefault();
+  //   AuthService.loginFakeUser();
+  //   setAuth(!auth);
+  // };
 
   return (
     <div className="text-center">
       <main className="form-signin">
-        <form>
+        <form onSubmit={handleSubmit}>
           <i className="fa fa-address-card-o fa-3x mb-4" aria-hidden="true"></i>
           <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
           <div className="form-floating">
             <input
               type="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
               className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              required
             />
             <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating">
             <input
               type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
               className="form-control"
               id="floatingPassword"
               placeholder="Password"
+              required
             />
             <label htmlFor="floatingPassword">Password</label>
           </div>
@@ -50,7 +80,6 @@ export const Login = () => {
           <button
             className="w-100 btn btn-lg btn-primary"
             type="submit"
-            onClick={fakeLogin}
           >
             Sign in
           </button>

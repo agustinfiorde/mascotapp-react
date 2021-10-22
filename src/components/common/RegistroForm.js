@@ -41,7 +41,7 @@ export const RegistroForm = () => {
           ...response,
           status: apiResponse.status,
         });
-        return apiResponse.json();
+        return apiResponse;
       })
       .then(({ message }) =>
         setResponse({
@@ -72,7 +72,7 @@ export const RegistroForm = () => {
           {message}
         </div>
       )}
-      <form className="needs-validation" novalidate>
+      <form className="needs-validation" noValidate>
         <div className="row g-3">
           <div className="col-12">
             <label htmlFor="email" className="form-label">
@@ -96,7 +96,7 @@ export const RegistroForm = () => {
               Clave
             </label>
             <input
-              type="text"
+              type="password"
               className="form-control"
               id="address"
               placeholder="Clave"
@@ -110,13 +110,13 @@ export const RegistroForm = () => {
           </div>
 
           <div className="col-12">
-            <label htmlFor="address2" className="form-label">
+            <label htmlFor="password2" className="form-label">
               Repetir Clave
             </label>
             <input
-              type="text"
+              type="password"
               className="form-control"
-              id="address2"
+              id="password2"
               placeholder="Repetir clave"
               onChange={handlePasswordConfirmation}
             />
