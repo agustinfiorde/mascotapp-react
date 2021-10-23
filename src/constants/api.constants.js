@@ -7,7 +7,7 @@ export const API = {
 
 export const API_EISH = {
 
-  URL: "http://192.168.0.18:8080/api/v1",
+  URL: "http://localhost:8080/api/v1",
 
   LOGIN: function () {
     return `${this.URL}/login`;

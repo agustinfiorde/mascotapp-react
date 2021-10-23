@@ -1,24 +1,28 @@
 import React, { useState } from "react";
+import { useForm } from "../../hooks/custom.hook";
 import AuthService from "../../services/auth.service";
 import UserService from "../../services/usuario.service";
+import { imageToBase64 } from "../../utilities/file.utility";
+
+const fakeUser = {
+  name: 'pelado',
+  lastName: 'god',
+  email: 'pepe@gmail.com',
+  dni: '4571623',
+  profilePictureB64: ''
+}
 
 export const Perfil = () => {
 
-  const [formValues, setFormValues] = useState({});
+  const { form, handleChanges } = useForm()
   const [passwordConfirmation, setPasswordConfirmation] = useState();
-  const [user, setUser] = useState(AuthService.getUser());
+  // const user = AuthService.getUser();
+  const user = { ...fakeUser, /*profilePictureB64: imageToBase64((window.location.origin + '/dog.jpg'))*/ }
 
   const handlePasswordConfirmation = (e) => {
     setPasswordConfirmation(e.target.value);
   };
 
-  const handleChange = (e) => {
-    console.log(user);
-    setUser((prevProps) => ({
-      ...prevProps,
-      [e.target.name]: e.target.value
-    }));
-  }
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,35 +31,13 @@ export const Perfil = () => {
     UserService.edit(user)
       .then((response) => {
         AuthService.setLocalStorage("user", response.data.token.user);
-        setUser(response.data.token.user);
+        // setUser(response.data.token.user);
 
       });
-
-    // await UserService.register(formValues)
-    //   .then((apiResponse) => {
-    //     setResponse({
-    //       ...response,
-    //       status: apiResponse.status,
-    //     });
-    //     return apiResponse;
-    //   })
-    //   .then(({ message }) =>
-    //     setResponse({
-    //       ...response,
-    //       message,
-    //     })
-    //   )
-    //   .catch((err) => console.log(err))
-    //   .finally(() =>
-    //     setResponse({
-    //       ...response,
-    //       finished: true,
-    //     })
-    //   );
   }
 
   const validPasswords = () => {
-    const { password } = formValues;
+    const { password } = form;
     return password === passwordConfirmation;
   };
 
@@ -78,7 +60,7 @@ export const Perfil = () => {
               placeholder="Nombre"
               name="name"
               value={user.name}
-              onChange={handleChange}
+              onChange={handleChanges}
               required
             />
             <div className="invalid-feedback">
@@ -97,7 +79,7 @@ export const Perfil = () => {
               name="lastName"
               placeholder="Apellido"
               value={user.lastName}
-              onChange={handleChange}
+              onChange={handleChanges}
               required
             />
             <div className="invalid-feedback">
@@ -116,7 +98,7 @@ export const Perfil = () => {
               name="email"
               placeholder="you@example.com"
               value={user.email}
-              onChange={handleChange}
+              onChange={handleChanges}
               required
             />
             <div className="invalid-feedback">
@@ -135,7 +117,7 @@ export const Perfil = () => {
               name="dni"
               placeholder="DNI"
               value={user.dni}
-              onChange={handleChange}
+              onChange={handleChanges}
               required
             />
             <div className="invalid-feedback">
@@ -166,7 +148,7 @@ export const Perfil = () => {
               type="password"
               className="form-control"
               id="email"
-              
+
               placeholder="Repetir Password"
               onChange={handlePasswordConfirmation}
             />

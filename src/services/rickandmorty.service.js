@@ -1,9 +1,10 @@
 import { API } from "../constants/api.constants";
+import { httpReq } from "./interceptor.service";
 
 class RickAndMortyService {
   async getAllCharacters() {
     const response = await fetch(API.CHARACTERS());
-    return response.json();
+    return httpReq(response)
   }
 
   async getCharacterById(id) {

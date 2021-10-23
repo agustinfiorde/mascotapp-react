@@ -1,12 +1,13 @@
 import { API_EISH } from "../constants/api.constants";
 import { HTTP, REQUEST_OPTIONS } from "../constants/constants";
+import { httpReq } from "./interceptor.service";
 
 class MascotaService {
 
   async register(petData) {
     console.log(API_EISH.PET_REGISTER());
     const response = await fetch(API_EISH.PET_REGISTER(), REQUEST_OPTIONS(petData, HTTP.POST));
-    return response.json();
+    return httpReq(response)
   }
 
   async getAllPets() {

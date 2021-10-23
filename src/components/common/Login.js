@@ -12,10 +12,10 @@ export const Login = (props) => {
     password: ""
   });
 
-  const handleChange = (e) => {
+  const handleChange = ({ target }) => {
     setUser((prevProps) => ({
       ...prevProps,
-      [e.target.name]: e.target.value
+      [target.name]: target.value
     }));
   }
 

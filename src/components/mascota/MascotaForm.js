@@ -4,15 +4,16 @@ import { AuthContext } from "../../context/context";
 import { useForm } from "../../hooks/custom.hook";
 import MascotaService from "../../services/mascota.service";
 import { imageToBase64 } from "../../utilities/file.utility";
+import { useMessageContext } from './../../context/MessageContext';
 
 export const MascotaForm = () => {
 
-  const { auth } = useContext(AuthContext);
-
   const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
-
-  const { form, setForm, handleChanges } = useForm();
   const [img, setState] = useState(defaultImg);
+  const { form, setForm, handleChanges } = useForm();
+  const { auth } = useContext(AuthContext);
+  const { showToast } = useMessageContext()
+
 
   const uploadImage = async (e) => {
     if (!!e.target.files[0]) {
@@ -35,9 +36,8 @@ export const MascotaForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await MascotaService.register(form)
-      .then((response) => response)
-      .then(({ message }) => console.log(message))
-      .catch((err) => console.error(err));
+      .then(({ message }) => showToast({ message }))
+      .catch(message => showToast({ message, type: 'error' }))
   };
 
   if (auth) {

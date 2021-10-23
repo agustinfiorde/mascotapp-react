@@ -1,32 +1,20 @@
 import React, { useState } from "react";
 import UserService from "../../services/usuario.service";
+import { useForm } from './../../hooks/custom.hook';
+import { useMessageContext } from './../../context/MessageContext';
 
-const statuses = {
-  200: "success",
-  500: "danger",
-};
+export const RegistroForm = (props) => {
 
-export const RegistroForm = () => {
-  const [formValues, setFormValues] = useState({});
-  const [response, setResponse] = useState({
-    finished: false,
-  });
-
-  // const [message, setMessage] = useState();
-  // const [finished, setFinished] = useState(false);
-  // const [status, setStatus] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
+  const { form, handleChanges } = useForm()
+  const { showToast } = useMessageContext()
 
-  const handleInputChanges = ({ target }) => {
-    const { name, value } = target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+  const handlePasswordConfirmation = (e) => {
+    setPasswordConfirmation(e.target.value);
   };
 
   const validPasswords = () => {
-    const { password } = formValues;
+    const { password } = form;
     return password === passwordConfirmation;
   };
 
@@ -35,43 +23,15 @@ export const RegistroForm = () => {
 
     if (!validPasswords()) return;
 
-    await UserService.register(formValues)
-      .then((apiResponse) => {
-        setResponse({
-          ...response,
-          status: apiResponse.status,
-        });
-        return apiResponse;
-      })
-      .then(({ message }) =>
-        setResponse({
-          ...response,
-          message,
-        })
-      )
-      .catch((err) => console.log(err))
-      .finally(() =>
-        setResponse({
-          ...response,
-          finished: true,
-        })
-      );
+    await UserService.register(form)
+      .then(({ message }) => showToast({ message, redirect: "/login" }))
+      .catch(message => showToast({ message, type: 'error' }))
   };
 
-  const handlePasswordConfirmation = (e) => {
-    setPasswordConfirmation(e.target.value);
-  };
-
-  const { status, message, finished } = response;
 
   return (
     <div className="w-25 mx-auto mt-5">
       <h4 className="mb-3">Humano Registrate!</h4>
-      {finished && (
-        <div className={`alert alert-${statuses[status]}`} role="alert">
-          {message}
-        </div>
-      )}
       <form className="needs-validation" noValidate>
         <div className="row g-3">
           <div className="col-12">
@@ -84,7 +44,7 @@ export const RegistroForm = () => {
               id="email"
               placeholder="you@example.com"
               name="email"
-              onChange={handleInputChanges}
+              onChange={handleChanges}
             />
             <div className="invalid-feedback">
               Please enter a valid email address for shipping updates.
@@ -101,7 +61,7 @@ export const RegistroForm = () => {
               id="address"
               placeholder="Clave"
               name="password"
-              onChange={handleInputChanges}
+              onChange={handleChanges}
               required
             />
             <div className="invalid-feedback">
