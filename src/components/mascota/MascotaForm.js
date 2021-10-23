@@ -6,9 +6,10 @@ import MascotaService from "../../services/mascota.service";
 import { imageToBase64 } from "../../utilities/file.utility";
 import { useMessageContext } from './../../context/MessageContext';
 
+const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
+
 export const MascotaForm = () => {
 
-  const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
   const [img, setState] = useState(defaultImg);
   const { form, setForm, handleChanges } = useForm();
   const { auth } = useContext(AuthContext);

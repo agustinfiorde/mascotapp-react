@@ -12,12 +12,25 @@ const fakeUser = {
   profilePictureB64: ''
 }
 
+const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
+
 export const Perfil = () => {
 
   const { form, handleChanges } = useForm()
   const [passwordConfirmation, setPasswordConfirmation] = useState();
-  // const user = AuthService.getUser();
-  const user = { ...fakeUser, /*profilePictureB64: imageToBase64((window.location.origin + '/dog.jpg'))*/ }
+  const user = AuthService.getUser();
+  const [img, setImg] = useState(user.profilePictureB64 || defaultImg)
+  // let user = { ...fakeUser, /*profilePictureB64: imageToBase64((window.location.origin + '/dog.jpg'))*/ }
+
+  const uploadImage = async (e) => {
+    if (!!e.target.files[0]) {
+      const file = e.target.files[0];
+      const base64 = await imageToBase64(file);
+      setImg(base64);
+    } else {
+      setImg(defaultImg);
+    }
+  };
 
   const handlePasswordConfirmation = (e) => {
     setPasswordConfirmation(e.target.value);
@@ -26,14 +39,16 @@ export const Perfil = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!validPasswords()) return;
+    // if (!validPasswords()) return;
 
-    UserService.edit(user)
-      .then((response) => {
-        AuthService.setLocalStorage("user", response.data.token.user);
-        // setUser(response.data.token.user);
+    console.log(form)
 
-      });
+    // UserService.edit(user)
+    //   .then((response) => {
+    //     AuthService.setLocalStorage("user", response.data.token.user);
+    //     // setUser(response.data.token.user);
+
+    //   });
   }
 
   const validPasswords = () => {
@@ -59,7 +74,7 @@ export const Perfil = () => {
               id="name"
               placeholder="Nombre"
               name="name"
-              value={user.name}
+              // value={user.name}
               onChange={handleChanges}
               required
             />
@@ -78,7 +93,7 @@ export const Perfil = () => {
               id="lastName"
               name="lastName"
               placeholder="Apellido"
-              value={user.lastName}
+              // value={user.lastName}
               onChange={handleChanges}
               required
             />
@@ -97,7 +112,7 @@ export const Perfil = () => {
               id="email"
               name="email"
               placeholder="you@example.com"
-              value={user.email}
+              // value={user.email}
               onChange={handleChanges}
               required
             />
@@ -116,7 +131,7 @@ export const Perfil = () => {
               id="dni"
               name="dni"
               placeholder="DNI"
-              value={user.dni}
+              // value={user.dni}
               onChange={handleChanges}
               required
             />
@@ -131,9 +146,11 @@ export const Perfil = () => {
             </label>
             <input
               type="password"
+              name="password"
               className="form-control"
               id="email"
               placeholder="Password"
+              onChange={handleChanges}
             />
             <div className="invalid-feedback">
               Please enter a valid email address for shipping updates.
@@ -148,7 +165,6 @@ export const Perfil = () => {
               type="password"
               className="form-control"
               id="email"
-
               placeholder="Repetir Password"
               onChange={handlePasswordConfirmation}
             />
@@ -167,7 +183,7 @@ export const Perfil = () => {
               className="form-control"
               id="profilePicture"
               placeholder=""
-              value=""
+              onChange={uploadImage}
               required
             />
 
@@ -177,7 +193,7 @@ export const Perfil = () => {
             <img
               className="rounded"
               height="300px"
-              src="https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif"
+              src={img}
               alt="profile"
             />
           </div>
