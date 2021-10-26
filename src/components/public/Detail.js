@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import RickAndMortyService from "../../services/RickAndMorty.service";
 
-export const Detail = (props) => {
+export const Detail = () => {
   const urlDashboard = "/dashboard";
   const urlMain = "/";
 
   const [mascota, setMascota] = useState({});
+  const { id } = useParams();
+  const { pathname } = useLocation();
 
-  const redirectUrl = props.match.path.includes("dashboard")
-    ? urlDashboard
-    : urlMain;
+  const redirectUrl = pathname.includes("dashboard") ? urlDashboard : urlMain;
 
   useEffect(() => {
-    RickAndMortyService.getCharacterById(props.match.params.id).then((data) =>
-      setMascota(data)
-    );
-  }, [props.match.params.id]);
+    RickAndMortyService.getCharacterById(id).then((data) => setMascota(data));
+  }, [id]);
 
   return (
     <div className="row m-3">
