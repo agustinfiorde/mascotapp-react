@@ -1,17 +1,15 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { SideBar } from "./SideBar";
-import { TablaMascotas } from "./TablaMascotas";
-import { TablaUsuarios } from "./TablaUsuarios";
-import Detalle from "../mascota/Detalle";
-import { ListaMascotas } from "../mascota/ListaMascotas";
-import { Perfil } from "../usuario/Perfil";
-import { DASHBOARD } from "../../constants/app.constants";
-import { AuthContext } from "../../context/context";
+import { UserTable } from "./users/UserTable";
+import { PetTable } from "../secured/pets/PetTable";
+import { Detail } from "../public/Detail";
+import { Profile } from "../secured/users/Profile";
+import { DASHBOARD } from "../../constants/App.constant";
+import { AuthContext } from "../../contexts/AuthContext";
 
-export const Dashboard = (props) => {
+export const Dashboard = () => {
   const { auth } = useContext(AuthContext);
-  // const path = props.match.path;
 
   if (!auth) return <Redirect to={"/login"} />;
 
@@ -25,17 +23,17 @@ export const Dashboard = (props) => {
               <Route
                 exact
                 path={DASHBOARD.TABLA_MASCOTAS()}
-                component={TablaMascotas}
+                component={PetTable}
               />
 
               <Route
                 exact
                 path={DASHBOARD.TABLA_USUARIOS()}
-                component={TablaUsuarios}
+                component={UserTable}
               />
-              <Route exact path={DASHBOARD.PERFIL()} component={Perfil} />
-              <Route exact path={DASHBOARD.LISTA()} component={ListaMascotas} />
-              <Route exact path={DASHBOARD.FAV()} component={Detalle} />
+              <Route exact path={DASHBOARD.PERFIL()} component={Profile} />
+              <Route exact path={DASHBOARD.LISTA()} component={PetTable} />
+              <Route exact path={DASHBOARD.FAV()} component={Detail} />
             </Switch>
           </main>
         </div>

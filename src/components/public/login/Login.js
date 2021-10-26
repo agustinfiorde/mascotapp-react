@@ -1,12 +1,13 @@
+import "./Login.css";
+
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Login.css";
-import { AuthContext } from "../../context/context";
-import AuthService from "../../services/auth.service";
+import { AuthContext } from "../../../contexts/AuthContext";
+import AuthService from "../../../services/Auth.service";
 
 export const Login = (props) => {
 
-  const { auth, setAuth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const [user, setUser] = useState({
     email: "",
     password: ""

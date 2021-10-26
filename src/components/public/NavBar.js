@@ -1,10 +1,11 @@
 import "../../App.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../../services/auth.service";
-import { AuthContext } from "../../context/context";
+import AuthService from "../../services/Auth.service";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const NavBar = () => {
+  
   const { auth, setAuth } = useContext(AuthContext);
 
   const logout = function () {

@@ -1,23 +1,23 @@
 import "./App.css";
 import React from "react";
-import { AuthContext } from "./context/context";
-import { useAuth } from "./hooks/custom.hook";
+import { AuthContext } from "./contexts/AuthContext";
+import { useAuth } from "./hooks/Custom.hook";
 import { Switch, Route } from "react-router-dom";
-import Footer from "./components/common/Footer";
-import { NavBar } from "./components/common/NavBar";
-import Main from "./components/common/Main";
-import { Login } from "./components/common/Login";
-import { RegistroForm } from "./components/common/RegistroForm";
-import { Dashboard } from "./components/admin/Dashboard";
-import { MascotaForm } from "./components/mascota/MascotaForm";
-import Detalle from "./components/mascota/Detalle";
+import { Footer } from "./components/public/Footer";
+import { NavBar } from "./components/public/NavBar";
+import Main from "./components/public/Main";
+import { Login } from "./components/public/login/Login";
+import { UserForm } from "./components/public/UserForm";
+import { Dashboard } from "./components/secured/Dashboard";
+import { PetForm } from "./components/secured/pets/PetForm";
+import { Detail } from "./components/public/Detail";
 import {
   DASHBOARD,
   HOME,
   LOGIN,
   MASCOTAS,
   SIGNUP,
-} from "./constants/app.constants";
+} from "./constants/App.constant";
 
 export const App = () => {
   const [auth, setAuth, roles, setRoles] = useAuth();
@@ -31,9 +31,9 @@ export const App = () => {
           <Route exact path={HOME} component={Main} />
           <Route path={DASHBOARD.ROOT} component={Dashboard} />
           <Route path={LOGIN} component={Login} />
-          <Route path={SIGNUP} component={RegistroForm} />
-          <Route path={MASCOTAS.DETALLE()} component={Detalle} />
-          <Route path={MASCOTAS.FORM()} component={MascotaForm} />
+          <Route path={SIGNUP} component={UserForm} />
+          <Route path={MASCOTAS.DETALLE()} component={Detail} />
+          <Route path={MASCOTAS.FORM()} component={PetForm} />
         </Switch>
       </AuthContext.Provider>
 

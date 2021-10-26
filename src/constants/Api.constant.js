@@ -1,11 +1,11 @@
-export const API = {
+export const API_RM = {
   URL: "https://rickandmortyapi.com/api",
   CHARACTERS: function () {
     return `${this.URL}/character`;
   },
 }
 
-export const API_EISH = {
+export const API_EGG = {
 
   URL: "http://localhost:8080/api/v1",
 
@@ -32,6 +32,11 @@ export const API_EISH = {
   PET_GET_ALL: function () {
     return `${this.URL}/pet/list`;
   },
+
+  PET_GET_ALL_ACTIVES: function () {
+    return `${this.URL}/pet/list`;//TODO
+  },
+
   PET_GET_SINGLE: function () {
     return `${this.URL}/pet/favorite`;
   },

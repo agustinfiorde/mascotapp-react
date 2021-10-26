@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import MascotaService from "../../services/mascota.service";
+import PetService from "../../../services/Pet.service";
 
-export const TablaMascotas = () => {
+export const PetTable = () => {
 
   const [mascotas, setMascotas] = useState([]);
 
   useEffect(() => {
-    MascotaService.getAllPets()
+    PetService.getAllPets()
       .then((response) => setMascotas(response.data.pets))
       .catch(() => setMascotas([]))
   }, []);

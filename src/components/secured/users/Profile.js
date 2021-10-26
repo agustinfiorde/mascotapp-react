@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useForm } from "../../hooks/custom.hook";
-import AuthService from "../../services/auth.service";
-import UserService from "../../services/usuario.service";
-import { imageToBase64 } from "../../utilities/file.utility";
+import { useForm } from "../../../hooks/Custom.hook";
+import AuthService from "../../../services/Auth.service";
+import UserService from "../../../services/User.service";
+import { imageToBase64 } from "../../../utilities/File.utility";
 
 const fakeUser = {
   name: 'pelado',
@@ -14,7 +14,7 @@ const fakeUser = {
 
 const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
 
-export const Perfil = () => {
+export const Profile = () => {
 
   const { form, handleChanges } = useForm()
   const [passwordConfirmation, setPasswordConfirmation] = useState();

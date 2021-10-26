@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import UserService from "../../services/usuario.service";
-import { useForm } from './../../hooks/custom.hook';
-import { useMessageContext } from './../../context/MessageContext';
+import UserService from "../../services/User.service";
+import { useForm } from '../../hooks/Custom.hook';
+import { useMessageContext } from './../../contexts/MessageContext';
 
-export const RegistroForm = (props) => {
+export const UserForm = () => {
 
   const [passwordConfirmation, setPasswordConfirmation] = useState();
   const { form, handleChanges } = useForm()

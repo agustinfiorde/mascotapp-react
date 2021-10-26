@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 // Styles
-import Styles from './MessageContext.module.css'
+import Styles from './MessageContext.css'
 
 const defaultToast = {
   message: null,

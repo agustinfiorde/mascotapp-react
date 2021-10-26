@@ -4,7 +4,7 @@ import "./index.css";
 import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { MessageProvider } from "./context/MessageContext";
+import { MessageProvider } from "./contexts/MessageContext";
 
 ReactDOM.render(
   <StrictMode>

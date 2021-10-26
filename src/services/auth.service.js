@@ -1,5 +1,5 @@
-import { user, REQUEST_OPTIONS, HTTP } from "../constants/constants";
-import { API_EISH } from "../constants/api.constants";
+import { user, HTTP, PUBLIC_REQUEST } from "../constants/Constants";
+import { API_EGG } from "../constants/Api.constant";
 
 class AuthService {
   loginFakeUser() {
@@ -14,8 +14,8 @@ class AuthService {
 
   async login(userData) {
     let response = await fetch(
-      API_EISH.LOGIN(),
-      REQUEST_OPTIONS(userData, HTTP.POST)
+      API_EGG.LOGIN(),
+      PUBLIC_REQUEST(userData, HTTP.POST)
     );
     return response.json();
   }

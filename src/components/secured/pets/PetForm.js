@@ -1,20 +1,19 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
-import { AuthContext } from "../../context/context";
-import { useForm } from "../../hooks/custom.hook";
-import MascotaService from "../../services/mascota.service";
-import { imageToBase64 } from "../../utilities/file.utility";
-import { useMessageContext } from './../../context/MessageContext';
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useForm } from "../../../hooks/Custom.hook";
+import MascotaService from "../../../services/Pet.service";
+import { imageToBase64 } from "../../../utilities/File.utility";
+import { useMessageContext } from "./../../../contexts/MessageContext";
 
 const defaultImg = "https://c.tenor.com/xhj_nO3GCQ0AAAAd/so-pretty-dog.gif";
 
-export const MascotaForm = () => {
+export const PetForm = () => {
 
   const [img, setState] = useState(defaultImg);
   const { form, setForm, handleChanges } = useForm();
   const { auth } = useContext(AuthContext);
-  const { showToast } = useMessageContext()
-
+  const { showToast } = useMessageContext();
 
   const uploadImage = async (e) => {
     if (!!e.target.files[0]) {
@@ -38,7 +37,7 @@ export const MascotaForm = () => {
     e.preventDefault();
     await MascotaService.register(form)
       .then(({ message }) => showToast({ message }))
-      .catch(message => showToast({ message, type: 'error' }))
+      .catch((message) => showToast({ message, type: "error" }));
   };
 
   if (auth) {
@@ -112,7 +111,7 @@ export const MascotaForm = () => {
                 className="form-control"
                 id="petNumber"
                 placeholder=""
-              // required
+                // required
               />
               <div className="invalid-feedback">
                 Valid petNumber is required.
@@ -129,7 +128,7 @@ export const MascotaForm = () => {
                 id="petNumber"
                 placeholder=""
                 onChange={uploadImage}
-              // required
+                // required
               />
               <div className="invalid-feedback">
                 Please select a valid country.

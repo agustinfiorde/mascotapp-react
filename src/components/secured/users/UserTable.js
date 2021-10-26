@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import UsuarioService from "../../services/usuario.service";
+import UserService from "../../../services/User.service";
 
-export const TablaUsuarios = () => {
+export const UserTable = () => {
 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    UsuarioService.getAllUsers()
+    UserService.getAllUsers()
       .then((response) => setUsers(response.data.users))
       .catch(() => setUsers([]))
   }, [])
